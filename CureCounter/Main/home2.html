@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/home.css">
+    <title>CureCounter - Explore</title>
+
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lora:700italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<!--Nav bar-->
+<header>
+    <a href="index.html"><h4 class="topic">CURE COUNTER</h4>
+  </a>
+    <nav class="navbar">
+      <div class="content">
+        <ul class="menu-list">
+          <li class="items"><a href="index.html">Home</a></li>
+          <li class="items"><a href="home.html">Explore</a></li>
+          <li class="items alt"><a href="../Sub/gethelp.html">Test</a></li>
+          <li class="items"><a href="login.html">login</a></li>
+        </ul>
+      </div>
+    </nav>
+</header>
+
+    <!--Heading-->
+    <div class="page-title-box">
+        <h1>My Wellbeing Pathway</h1>
+    </div>
+    <div id="inputBox">
+        <div id="inputRow">
+            <label for="inputField">How are you feeling?</label>
+            <input type="text" id="inputField" placeholder="Type your feelings here...">
+            <button onclick="checkFeeling()">Check</button>
+            <div id="resultMessage"></div>    
+        </div>
+    </div>
+    
+    <hr>
+
+    <h2>We are here to assist you</h2>
+    <div id="matrixContainer">
+        <!-- First Row -->
+        <div class="row">
+            <div class="box">
+                <a href="wellbeing/trauma.html"><img src="images/1.jpg" alt="Placeholder Image 1"></a>
+            </div>
+            <div class="box">
+                <a href="wellbeing/trauma.html"><img src="images/2.jpg" alt="Placeholder Image 2"></a>
+            </div>
+            <div class="box">
+                <a href="wellbeing/trauma.html"><img src="images/3.jpg" alt="Placeholder Image 3"></a>
+            </div>
+        </div>
+
+        <!-- Second Row -->
+        <div class="row">
+            <div class="box">
+                <a href="wellbeing/trauma.html"><img src="images/4.jpg" alt="Placeholder Image 4"></a>
+            </div>
+            <div class="box">
+                <a href="wellbeing/trauma.html"><img src="images/5.jpg" alt="Placeholder Image 5"></a>
+            </div>
+            <div class="box">
+                <a href="wellbeing/trauma.html"><img src="images/6.jpg" alt="Placeholder Image 6"></a>
+            </div>
+        </div>
+
+        <!-- Third Row -->
+        <div class="row">
+            <div class="box">
+                <a href="wellbeing/trauma.html"><img src="images/7.jpg" alt="Placeholder Image 7"></a>
+            </div>
+            <div class="box">
+                <a href="wellbeing/trauma.html"><img src="images/8.jpg" alt="Placeholder Image 8"></a>
+            </div>
+            <div class="box">
+                <a href="wellbeing/trauma.html"><img src="images/9.jpg" alt="Placeholder Image 9"></a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function checkFeeling() {
+            var inputField = document.getElementById("inputField");
+            var resultMessage = document.getElementById("resultMessage");
+
+            var userFeeling = inputField.value.toLowerCase();
+
+            if (containsKeyword(userFeeling, ["happy", "joy", "excited"])) {
+                resultMessage.innerText = "That's great! Keep spreading the positivity.";
+            } else if (containsKeyword(userFeeling, ["sad", "unhappy", "depressed", "anxious"])) {
+                resultMessage.innerText = "I'm sorry to hear that. Reach out to someone for support.";
+            } else if (containsKeyword(userFeeling, ["angry", "frustrated", "irritated", "fear"])) {
+                resultMessage.innerText = "Take a deep breath. It's okay to feel that way. Try to find a healthy outlet.";
+            } else if (containsKeyword(userFeeling, ["calm", "relaxed", "peaceful"])) {
+                resultMessage.innerText = "That sounds peaceful. Enjoy the tranquility!";
+            } else {
+                resultMessage.innerText = "Interesting! Share more about how you're feeling.";
+            }
+        }
+
+        function containsKeyword(input, keywords) {
+            return keywords.some(keyword => input.includes(keyword));
+        }
+    </script>
+
+
+</body>
+</html>
